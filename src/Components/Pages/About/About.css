@@ -1,0 +1,12 @@
+.About {
+    height: 100%;
+    width: 100%;
+	padding: 10px;
+    overflow-y: auto;
+}
+
+
+.About p:first-letter{
+    color:darkblue;
+    font-size: 36px;
+}

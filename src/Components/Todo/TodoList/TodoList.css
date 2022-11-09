@@ -1,0 +1,14 @@
+.TodoList {
+	width: 100%;
+    height: 100%;
+    overflow-y: auto;
+
+}
+.TodoList .list{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    overflow-y: auto;
+}
