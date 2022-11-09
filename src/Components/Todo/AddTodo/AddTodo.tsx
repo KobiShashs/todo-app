@@ -64,10 +64,10 @@ function AddTodo(): JSX.Element {
                 {/*<label htmlFor={"when"}>{errors?.when ? <span>{errors.when.message}</span> : "when"}</label>*/}
                 {/*<input {...register("when")} type={"date"} name={"when"} placeholder={"when..."}/>*/}
 
-                <SuperInput type={"text"} name={"title"} register={register} errors={errors}/>
-                <SuperInput type={"text"} name={"description"} register={register} errors={errors}/>
-                <SuperInput type={"text"} name={"group"} register={register} errors={errors}/>
-                <SuperInput type={"date"} name={"when"} register={register} errors={errors}/>
+                <SuperInput type={"text"} name={"title"} register={register} error={errors?.title}/>
+                <SuperInput type={"text"} name={"description"} register={register} error={errors?.description}/>
+                <SuperInput type={"text"} name={"group"} register={register} error={errors?.group}/>
+                <SuperInput type={"date"} name={"when"} register={register} error={errors?.when}/>
                 <button disabled={!isValid}>Add Task</button>
             </form>
         </div>
