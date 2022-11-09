@@ -6,6 +6,7 @@ import {Task} from "../../../Models/Task";
 import notify from "../../../Services/Notifications";
 import {addTask} from "../../../Services/WebApi";
 import {useNavigate} from "react-router-dom";
+import SuperInput from "../../Shared/SuperInput/SuperInput";
 
 function AddTodo(): JSX.Element {
 
@@ -53,15 +54,20 @@ function AddTodo(): JSX.Element {
         <div className="AddTodo">
             <h2>Add Task</h2>
             <form onSubmit={handleSubmit(added)}>
-                <label htmlFor={"title"}>{errors?.title ? <span>{errors.title.message}</span> : "Title"}</label>
-                <input {...register("title")} type={"text"} name={"title"} placeholder={"name..."}/>
-                <label htmlFor={"description"}>{errors?.description ?
-                    <span>{errors.description.message}</span> : "description"}</label>
-                <input {...register("description")} type={"text"} name={"description"} placeholder={"description..."}/>
-                <label htmlFor={"group"}>{errors?.group ? <span>{errors.group.message}</span> : "group"}</label>
-                <input {...register("group")} type={"text"} name={"group"} placeholder={"group..."}/>
-                <label htmlFor={"when"}>{errors?.when ? <span>{errors.when.message}</span> : "when"}</label>
-                <input {...register("when")} type={"date"} name={"when"} placeholder={"when..."}/>
+                {/*<label htmlFor={"title"}>{errors?.title ? <span>{errors.title.message}</span> : "Title"}</label>*/}
+                {/*<input {...register("title")} type={"text"} name={"title"} placeholder={"name..."}/>*/}
+                {/*<label htmlFor={"description"}>{errors?.description ?*/}
+                {/*    <span>{errors.description.message}</span> : "description"}</label>*/}
+                {/*<input {...register("description")} type={"text"} name={"description"} placeholder={"description..."}/>*/}
+                {/*<label htmlFor={"group"}>{errors?.group ? <span>{errors.group.message}</span> : "group"}</label>*/}
+                {/*<input {...register("group")} type={"text"} name={"group"} placeholder={"group..."}/>*/}
+                {/*<label htmlFor={"when"}>{errors?.when ? <span>{errors.when.message}</span> : "when"}</label>*/}
+                {/*<input {...register("when")} type={"date"} name={"when"} placeholder={"when..."}/>*/}
+
+                <SuperInput type={"text"} name={"title"} register={register} errors={errors}/>
+                <SuperInput type={"text"} name={"description"} register={register} errors={errors}/>
+                <SuperInput type={"text"} name={"group"} register={register} errors={errors}/>
+                <SuperInput type={"date"} name={"when"} register={register} errors={errors}/>
                 <button disabled={!isValid}>Add Task</button>
             </form>
         </div>

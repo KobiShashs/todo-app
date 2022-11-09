@@ -8,7 +8,7 @@ interface TodoItemProps{
 function TodoItem(props:TodoItemProps): JSX.Element {
     return (
         <div className="TodoItem">
-			<Card title={props.task.title} description={props.task.description} group={props.task.group} date={props.task.when}/>
+			<Card id={props.task.id} title={props.task.title} description={props.task.description} group={props.task.group} date={props.task.when}/>
         </div>
     );
 }
