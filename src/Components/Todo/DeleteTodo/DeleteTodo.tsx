@@ -3,7 +3,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useEffect} from "react";
 import notify from "../../../Services/Notifications";
 import {deleteTask} from "../../../Services/WebApi";
-import store from "../../../Redux/store";
+import store from "../../../Redux/Store";
 import {deletedTask} from "../../../Redux/TaskAppState";
 
 function DeleteTodo(): JSX.Element {

@@ -9,7 +9,7 @@ import {Link} from "react-router-dom";
 import CustomLink from "../../Routing/CustomLink/CustomLink";
 import EmptyView from "../../Shared/EmptyView/EmptyView";
 import {downloadedTasks} from "../../../Redux/TaskAppState";
-import store from "../../../Redux/store";
+import store from "../../../Redux/Store";
 
 function TodoList(): JSX.Element {
 

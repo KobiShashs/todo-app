@@ -7,7 +7,7 @@ import notify from "../../../Services/Notifications";
 import {addTask} from "../../../Services/WebApi";
 import {useNavigate} from "react-router-dom";
 import SuperInput from "../../Shared/SuperInput/SuperInput";
-import store from "../../../Redux/store";
+import store from "../../../Redux/Store";
 import {addedTask} from "../../../Redux/TaskAppState";
 
 function AddTodo(): JSX.Element {
@@ -41,11 +41,11 @@ function AddTodo(): JSX.Element {
 
 
     const added = (task: Task) => {
-        //console.log(JSON.stringify(task))
+        console.log(JSON.stringify(task))
         //notify.success("Woho!!!");
 
         addTask(task).then(res => {
-                //console.log(res.data);
+
                 notify.success("Added Successfully");
                 store.dispatch(addedTask(res.data));
                 navigate("/todos");

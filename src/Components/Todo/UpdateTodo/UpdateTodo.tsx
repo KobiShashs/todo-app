@@ -8,7 +8,7 @@ import SuperInput from "../../Shared/SuperInput/SuperInput";
 import {useState} from "react";
 import {updateTask} from "../../../Services/WebApi";
 import notify from "../../../Services/Notifications";
-import store from "../../../Redux/store";
+import store from "../../../Redux/Store";
 import {updatedTask} from "../../../Redux/TaskAppState";
 
 function UpdateTodo(): JSX.Element {

@@ -1,5 +1,6 @@
 import { combineReducers, createStore } from "redux";
 import {tasksReducer} from "./TaskAppState";
+import {userReducer} from "./UserAppState";
 
 
 // Single Reducer
@@ -7,8 +8,9 @@ import {tasksReducer} from "./TaskAppState";
 
 
 //Multiple reducers
- const reducers = combineReducers({tasksReducer: tasksReducer});
- const store = createStore(reducers)
+ const reducers = combineReducers({tasksReducer: tasksReducer,userReducer:userReducer});
+ const store = createStore(reducers);
+// TODO : deprecated method
 
 // For getting data
 //const xyz = store.getState().catState.cats;

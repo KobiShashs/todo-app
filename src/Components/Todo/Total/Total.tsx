@@ -1,6 +1,6 @@
 import "./Total.css";
 import {useEffect, useState} from "react";
-import store from "../../../Redux/store";
+import store from "../../../Redux/Store";
 
 
 function Total(): JSX.Element {
@@ -22,6 +22,7 @@ function Total(): JSX.Element {
     return (
         <div className="Total circle">
             <p>{num}</p>
+        {/*    Todo use Selector without state*/}
         </div>
     );
 }
