@@ -1,18 +1,4 @@
 .AddTodo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
 }
 
-.AddTodo form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-
-.AddTodo span {
-    font-weight: 900;
-    color: red;
-}

@@ -32,26 +32,26 @@ function AddTodo(): JSX.Element {
                 .nullable().default(() => new Date()),
     });
 
-    const {register, handleSubmit, formState: {errors, isValid}} = useForm<Task>({
+    const {register, handleSubmit, formState: {errors, isValid, isDirty}} = useForm<Task>({
         mode: "all",
         resolver: yupResolver(schema)
     });
 
 
     const added = (task: Task) => {
-        console.log(JSON.stringify(task))
-        notify.success("Woho!!!");
+        //console.log(JSON.stringify(task))
+        //notify.success("Woho!!!");
 
-        navigate("/todos");
-        // addTask(task).then(res => {
-        //         console.log(res.data);
-        //
-        //     }
-        // ).catch(err => notify.error(err));
+        addTask(task).then(res => {
+                console.log(res.data);
+                notify.success("Added Successfully");
+                navigate("/todos");
+            }
+        ).catch(err => notify.error(err));
     }
 
     return (
-        <div className="AddTodo">
+        <div className="AddTodo container">
             <h2>Add Task</h2>
             <form onSubmit={handleSubmit(added)}>
                 {/*<label htmlFor={"title"}>{errors?.title ? <span>{errors.title.message}</span> : "Title"}</label>*/}
@@ -67,7 +67,8 @@ function AddTodo(): JSX.Element {
                 <SuperInput type={"text"} name={"title"} register={register} error={errors?.title}/>
                 <SuperInput type={"text"} name={"description"} register={register} error={errors?.description}/>
                 <SuperInput type={"text"} name={"group"} register={register} error={errors?.group}/>
-                <SuperInput type={"date"} name={"when"} register={register} error={errors?.when}/>
+                <SuperInput type={"datetime-local"} name={"when"} register={register} error={errors?.when}/>
+                <br/>
                 <button disabled={!isValid}>Add Task</button>
             </form>
         </div>

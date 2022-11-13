@@ -1,4 +1,7 @@
 .Footer {
-	height: 100%;
     background-color: seagreen;
+}
+.Footer p {
+    font-size: 28px;
+    font-weight: bold;
 }

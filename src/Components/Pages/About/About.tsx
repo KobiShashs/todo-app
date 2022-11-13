@@ -4,9 +4,9 @@ import notify from "../../../Services/Notifications";
 
 function About(): JSX.Element {
 
-    useEffect(() => {
-        notify.success("kokoriko");
-    }, []);
+    // useEffect(() => {
+    //     notify.success("kokoriko");
+    // }, []);
     return (
         <div className="About">
             <p>

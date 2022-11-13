@@ -4,6 +4,10 @@
     overflow-y: auto;
 
 }
+
+.TodoList .add{
+    margin: 25px;
+}
 .TodoList .list{
     display: flex;
     flex-direction: row;
@@ -11,4 +15,15 @@
     flex-wrap: wrap;
     align-items: flex-start;
     overflow-y: auto;
+    padding: 10px;
+}
+
+.TodoList .center{
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: center;*/
+    /*!*flex-wrap: wrap;*!*/
+    /*align-items: center;*/
+    /*!*overflow-y: auto;*!*/
+    /*padding: 10px;*/
 }

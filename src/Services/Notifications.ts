@@ -9,8 +9,35 @@ class Notify{
         this.notification.success(message);
     }
 
-    public error(message: string){
-        this.notification.error(message);
+    public error(err: any){
+        const msg = this.extractMsg(err);
+        this.notification.error(msg);
+    }
+
+    private extractMsg(err: any): string{
+
+        if(typeof err === 'string'){
+            return err;
+        }
+
+        if(typeof err?.response?.data === 'string'){ //Backend exact error
+            return err.response.data;
+        }
+
+        if(Array.isArray(err?.response?.data)){ // Backend exact error list
+            return err?.response?.data[0];
+        }
+
+
+        // Must be last
+        if(typeof err?.message === 'string'){
+            return err.message;
+        }
+
+
+        return "Miaowing, an error occurred, please try again.";
+
+
     }
 }
 const notify = new Notify();

@@ -1,3 +1,31 @@
 .DeleteTodo {
-	
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.DeleteTodo p {
+    font-size: 28px;
+}
+
+.DeleteTodo .line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: transparent;
+    gap: 100px;
+}
+
+.red {
+    background-color: red;
+}
+
+.DeleteTodo button {
+    width: 10vw;
+    font-weight: bold;
+    height: 5vh;
+    border-radius: 20px;
 }

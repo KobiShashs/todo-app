@@ -7,8 +7,8 @@
 }
 
 .Home > img {
-    height: 250px;
-    width: 250px;
+    height: 25vh;
+    /*width: 50vw;*/
     border-radius: 50%;
-    border: 2px dotted slateblue;
+    border: 5px dotted slateblue;
 }

@@ -3,13 +3,20 @@ class Globals{
 
 class DevelopmentGlobals extends Globals{
     public urls = {
-        todos: "https://raw.githubusercontent.com/KobiShashs/TODO-JSON/main/tasks",
+        admin : "http://localhost:8080/api/admin/",
+        todos: "http://localhost:8080/api/tasks/",
+        users:"http://localhost:8080/api/users/tasks/",
+        auth:"http://localhost:8080/api/auth/"
+
     }
 }
 
 class ProductionGlobals extends Globals{
     public urls = {
-        todos: "http://localhost:8008/api/todos/",
+        admin : "http://localhost:8080/api/admin/",
+        todos: "https://raw.githubusercontent.com/KobiShashs/TODO-JSON/main/tasks",
+        users:"http://localhost:8080/api/users/tasks/",
+        auth:"http://localhost:8080/api/auth/"
     }
 }
 
