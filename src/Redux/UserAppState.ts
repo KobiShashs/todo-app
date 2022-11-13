@@ -1,12 +1,13 @@
 // Step 1 - Manage a global collection
 import {LoginResponse, User} from "../Models/Auth";
+import store from "./Store";
+import {clearedAll} from "./TaskAppState";
 
 export class UserAppState {
 
-    public user?: User = null;
+    public user?: User = {token: '', email: ''};
 
     public constructor() {
-
         try {
             this.user = JSON.parse(localStorage.getItem("user"));
         } catch (Error) {
@@ -55,14 +56,17 @@ export function userReducer(currentState: UserAppState = new UserAppState(), act
             break;
         }
         case UserActionType.LOGGED_IN: {
-            const token = action.payload.token;
-            const email = action.payload.email;
-            const user = {token, email};
-            localStorage.setItem("user", JSON.stringify(user));
+
+            newState.user = action.payload;
+            localStorage.setItem("user", JSON.stringify(newState.user));
+            // todo get all tasks;
             break;
         }
         case UserActionType.LOGGED_OUT: {
             localStorage.setItem("user", null);
+
+            newState.user = null;
+
             break;
         }
     }

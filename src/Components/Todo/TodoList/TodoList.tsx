@@ -5,7 +5,6 @@ import {getAllTasks} from "../../../Services/WebApi";
 import notify from "../../../Services/Notifications";
 import TodoItem from "../TodoItem/TodoItem";
 import {FaPlusCircle} from "react-icons/fa";
-import {Link} from "react-router-dom";
 import CustomLink from "../../Routing/CustomLink/CustomLink";
 import EmptyView from "../../Shared/EmptyView/EmptyView";
 import {downloadedTasks} from "../../../Redux/TaskAppState";
@@ -32,7 +31,7 @@ function TodoList(): JSX.Element {
 
 
         //.catch(err => notify.error(err));
-    }, []);
+    }, [tasks?.length]);
     return (
         <div className="TodoList">
             <div className={"add flex"}>

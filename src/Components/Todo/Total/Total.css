@@ -1,23 +1,22 @@
 .Total {
-	
+	/*background-color:darkgray;*/
+    /*width: 100px;*/
+    /*height: 100px;*/
+
 }
 
 
-.dot {
-    height: 100px;
-    width: 100px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.circle {
-    background: gold;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex; /* or inline-flex */
-    align-items: center;
+.circle-with-text {
+    background: linear-gradient(orange, red);
     justify-content: center;
-    margin-left: auto;
+    align-items: center;
+    border-radius: 100%;
+    text-align: center;
+    margin: 5px;
+    font-size: 15px;
+    padding: 5px;
+    display: flex;
+    height: 50px;
+    width: 50px;
+    color: #fff;
 }

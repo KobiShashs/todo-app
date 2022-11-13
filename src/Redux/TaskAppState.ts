@@ -11,7 +11,8 @@ export enum TaskActionType {
     DOWNLOADED_ONE = "DOWNLOADED_ONE",
     DELETED_TASK = "DELETED_TASK",
     UPDATED_TASK = "UPDATED_TASK",
-    ADDED_TASK = "ADDED_TASK"
+    ADDED_TASK = "ADDED_TASK",
+    CLEARED_ALL = "CLEARED_ALL"
 }
 
 // Step 3 - Define for each action its own payload
@@ -21,6 +22,8 @@ export interface TaskAction {
 }
 
 // Step 4 - Creator Function which handle the payload per action
+
+
 export function downloadedTasks(tasks: Task[]): TaskAction {
     return {type: TaskActionType.DOWNLOADED_ALL, payload: tasks};
 }
@@ -43,6 +46,10 @@ export function addedTask(task: Task): TaskAction {
 }
 
 
+export function clearedAll(): TaskAction {
+    return {type: TaskActionType.CLEARED_ALL, payload: null};
+}
+
 // Step 5 - Reducer function perform the required action
 export function tasksReducer(currentState: TaskAppState = new TaskAppState(), action: TaskAction): TaskAppState {
 
@@ -63,12 +70,15 @@ export function tasksReducer(currentState: TaskAppState = new TaskAppState(), ac
         }
         case TaskActionType.DOWNLOADED_ONE:
         case TaskActionType.UPDATED_TASK: {
-
             const id = action.payload.id;
             const idx = newState.tasks.findIndex(task => task.id === id);
             newState.tasks[idx] = action.payload;
             //   newState.tasks = Object.assign({},newState.tasks);
             // newState.tasks = [...newState.tasks];
+            break;
+        }
+        case TaskActionType.CLEARED_ALL: {
+            newState.tasks = [];
             break;
         }
     }

@@ -8,7 +8,13 @@ export interface CredentialsRequest {
     password: string;
 }
 
-export interface User{
+export interface Credentials {
+    email: string;
+    password: string;
+    confirm: string;
+}
+
+export interface User {
     token: string;
     email: string;
 }

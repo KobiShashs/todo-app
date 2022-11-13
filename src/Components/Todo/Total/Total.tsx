@@ -5,7 +5,7 @@ import store from "../../../Redux/Store";
 
 function Total(): JSX.Element {
 
-    const [num, setNum] = useState(0);
+    const [num, setNum] = useState(store.getState().tasksReducer.tasks.length);
 
     useEffect(() => {
 
@@ -20,8 +20,8 @@ function Total(): JSX.Element {
 
     }, []);
     return (
-        <div className="Total circle">
-            <p>{num}</p>
+        <div className="Total circle-with-text">
+            <p className={"inner"}>{num}</p>
         {/*    Todo use Selector without state*/}
         </div>
     );

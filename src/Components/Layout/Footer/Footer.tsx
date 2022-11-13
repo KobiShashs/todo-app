@@ -3,11 +3,15 @@ import Total from "../../Todo/Total/Total";
 
 function Footer(): JSX.Element {
     return (
-        <div className="Footer flex">
-			<p>All rights &#169; reserved to Ensilo & Kobi </p>
+        <div className="Footer row">
+            <div className={"center"}>All rights &#169; reserved to Ensilo & Kobi</div>
+            <div>
+                <Total/>
+            </div>
 
-            <Total/>
+
         </div>
+
     );
 }
 
