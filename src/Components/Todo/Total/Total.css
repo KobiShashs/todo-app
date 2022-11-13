@@ -1,0 +1,23 @@
+.Total {
+	
+}
+
+
+.dot {
+    height: 100px;
+    width: 100px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.circle {
+    background: gold;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex; /* or inline-flex */
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+}

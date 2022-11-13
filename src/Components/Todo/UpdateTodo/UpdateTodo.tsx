@@ -8,6 +8,8 @@ import SuperInput from "../../Shared/SuperInput/SuperInput";
 import {useState} from "react";
 import {updateTask} from "../../../Services/WebApi";
 import notify from "../../../Services/Notifications";
+import store from "../../../Redux/store";
+import {updatedTask} from "../../../Redux/TaskAppState";
 
 function UpdateTodo(): JSX.Element {
 
@@ -54,6 +56,7 @@ function UpdateTodo(): JSX.Element {
         await updateTask(id, task)
             .then(res => {
                 notify.success("Updated successfully");
+                store.dispatch(updatedTask(res.data));
                 navigate("/todos")
             })
             .catch(err => notify.error(err));

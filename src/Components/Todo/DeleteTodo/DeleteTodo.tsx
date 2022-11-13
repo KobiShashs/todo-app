@@ -3,6 +3,8 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useEffect} from "react";
 import notify from "../../../Services/Notifications";
 import {deleteTask} from "../../../Services/WebApi";
+import store from "../../../Redux/store";
+import {deletedTask} from "../../../Redux/TaskAppState";
 
 function DeleteTodo(): JSX.Element {
     const navigate = useNavigate();
@@ -20,6 +22,7 @@ function DeleteTodo(): JSX.Element {
         deleteTask(id)
             .then(res => {
                     notify.success("Deleted Successfully");
+                    store.dispatch(deletedTask(id));
                     navigate("/todos");
                 }
             )
