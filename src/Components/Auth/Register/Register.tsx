@@ -38,7 +38,7 @@ function Register(): JSX.Element {
     const credentials = (credentials: Credentials) => {
         const credentialsReq = {email: credentials.email, password: credentials.password};
         registerToService(credentialsReq).then(res => {
-            notify.success("Login successfully");
+            notify.success("Registered successfully");
             store.dispatch(registered());
             navigate("/login");
         }).catch(err => notify.error(err));
