@@ -1,28 +1,28 @@
 import "./Total.css";
 import {useEffect, useState} from "react";
-import store from "../../../Redux/Store";
+import store, {AppState} from "../../../Redux/Store";
+import {useSelector} from "react-redux";
+import {tasksReducer} from "../../../Redux/TaskAppState";
 
 
 function Total(): JSX.Element {
 
-    const [num, setNum] = useState(store.getState().tasksReducer.tasks.length);
+    const total = useSelector((state: AppState) => state.tasksReducer.tasks?.length || 0);
+    //const [num, setNum] = useState(total);
 
     useEffect(() => {
 
-        // if(num===0){
-        //
-        // }
+        // return store.subscribe(() => {
+        //     setNum(total); // Will let us notify
+        // });
 
-        return  store.subscribe(() => {
-            setNum(store.getState().tasksReducer.tasks.length); // Will let us notify
-        });
+
 
 
     }, []);
     return (
         <div className="Total circle-with-text">
-            <p className={"inner"}>{num}</p>
-        {/*    Todo use Selector without state*/}
+            <p className={"inner"}>{total}</p>
         </div>
     );
 }

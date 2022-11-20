@@ -1,18 +1,11 @@
-import { combineReducers, createStore } from "redux";
+import {applyMiddleware, combineReducers, createStore} from "redux";
 import {tasksReducer} from "./TaskAppState";
 import {userReducer} from "./UserAppState";
-
-
-// Single Reducer
-// const store = createStore(tasksReducer);
-
+import logger from 'redux-logger'
 
 //Multiple reducers
  const reducers = combineReducers({tasksReducer: tasksReducer,userReducer:userReducer});
- const store = createStore(reducers);
+ const store = createStore(reducers,applyMiddleware(logger));
 // TODO : deprecated method
-
-// For getting data
-//const xyz = store.getState().catState.cats;
-
+export type AppState  = ReturnType<typeof reducers>;
 export default store;

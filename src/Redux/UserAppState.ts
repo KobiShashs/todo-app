@@ -59,7 +59,7 @@ export function userReducer(currentState: UserAppState = new UserAppState(), act
 
             newState.user = action.payload;
             localStorage.setItem("user", JSON.stringify(newState.user));
-            // todo get all tasks;
+
             break;
         }
         case UserActionType.LOGGED_OUT: {

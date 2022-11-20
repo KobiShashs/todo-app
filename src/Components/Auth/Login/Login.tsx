@@ -11,10 +11,13 @@ import store from "../../../Redux/Store";
 import {loggedIn} from "../../../Redux/UserAppState";
 import SuperInput from "../../Shared/SuperInput/SuperInput";
 import {clearedAll, downloadedTasks} from "../../../Redux/TaskAppState";
+import {useDispatch} from "react-redux";
 
 function Login(): JSX.Element {
 
     const navigate = useNavigate();
+
+    const dispatch = useDispatch();
 
     const schema = yup.object().shape({
         email:
@@ -23,11 +26,11 @@ function Login(): JSX.Element {
                 .required("Title is required"),
         password:
             yup.string()
-                .min(4,"Password too short")
+                .min(4, "Password too short")
                 .required("Description is required"),
         confirm:
             yup.string()
-                .test('passwords-match', 'Passwords must match', function(value){
+                .test('passwords-match', 'Passwords must match', function (value) {
                     return this.parent.password === value
                 })
     });
@@ -38,12 +41,15 @@ function Login(): JSX.Element {
     });
 
     const credentials = (credentials: Credentials) => {
-        const credentialsReq = {email:credentials.email,password:credentials.password};
+        const credentialsReq = {email: credentials.email, password: credentials.password};
         login(credentialsReq).then(res => {
             notify.success("Login successfully");
-            store.dispatch(loggedIn(res.data));
-            store.dispatch(clearedAll());
-            getAllTasks().then(res=>store.dispatch(downloadedTasks(res.data))).catch(err=>notify.error(err));
+            // store.dispatch(loggedIn(res.data));
+            // store.dispatch(clearedAll());
+            dispatch(loggedIn(res.data));
+            dispatch(clearedAll());
+            // TODO consider to remove it into async task
+            getAllTasks().then(res => store.dispatch(downloadedTasks(res.data))).catch(err => notify.error(err));
             navigate("/home");
         }).catch(err => notify.error(err));
 

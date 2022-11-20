@@ -1,20 +1,29 @@
 import "./AuthMenu.css";
 import {useEffect, useState} from "react";
-import store from "../../../Redux/Store";
+import store, {AppState} from "../../../Redux/Store";
 import CustomLink from "../../Routing/CustomLink/CustomLink";
 import {Link, NavLink} from "react-router-dom";
 import {User} from "../../../Models/Auth";
+import {useSelector} from "react-redux";
 
 function AuthMenu(): JSX.Element {
 
-    const [user, setUser] = useState<User>(store.getState().userReducer.user);
 
 
-    useEffect(()=>{
-        return store.subscribe(() => {
-            setUser(store.getState().userReducer.user);
-        });
-    },[]);
+
+
+
+
+
+    const user = useSelector((state:AppState)=>state.userReducer.user);
+    // const [user, setUser] = useState<User>(store.getState().userReducer.user);
+
+
+    useEffect(() => {
+        // return store.subscribe(() => {
+        //     setUser(store.getState().userReducer.user);
+        // });
+    }, []);
 
     return (
         <div className="AuthMenu">

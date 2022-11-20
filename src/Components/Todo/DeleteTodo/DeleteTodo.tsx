@@ -5,9 +5,11 @@ import notify from "../../../Services/Notifications";
 import {deleteTask} from "../../../Services/WebApi";
 import store from "../../../Redux/Store";
 import {deletedTask} from "../../../Redux/TaskAppState";
+import {useDispatch} from "react-redux";
 
 function DeleteTodo(): JSX.Element {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const params = useParams();
     const id = +(params.id || 0);
     // useEffect(()=>{
@@ -22,7 +24,8 @@ function DeleteTodo(): JSX.Element {
         deleteTask(id)
             .then(res => {
                     notify.success("Deleted Successfully");
-                    store.dispatch(deletedTask(id));
+                    // store.dispatch(deletedTask(id));
+                    dispatch(deletedTask(id));
                     navigate("/todos");
                 }
             )

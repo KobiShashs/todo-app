@@ -9,10 +9,15 @@ import {useNavigate} from "react-router-dom";
 import SuperInput from "../../Shared/SuperInput/SuperInput";
 import store from "../../../Redux/Store";
 import {addedTask} from "../../../Redux/TaskAppState";
+import {useDispatch} from "react-redux";
+import {useEffect} from "react";
+import useRedirect from "../../../Hooks/RedirectCustomHook";
 
 function AddTodo(): JSX.Element {
 
     const navigate = useNavigate();
+
+    const dispatch = useDispatch();
 
 
     const schema = yup.object().shape({
@@ -39,6 +44,13 @@ function AddTodo(): JSX.Element {
         resolver: yupResolver(schema)
     });
 
+    useRedirect();
+    // useEffect(() => {
+    //     if (!store.getState().userReducer.user.token) {
+    //         notify.error("Pls Login");
+    //         navigate("login");
+    //     }
+    // }, []);
 
     const added = (task: Task) => {
         console.log(JSON.stringify(task))
@@ -47,7 +59,8 @@ function AddTodo(): JSX.Element {
         addTask(task).then(res => {
 
                 notify.success("Added Successfully");
-                store.dispatch(addedTask(res.data));
+               // store.dispatch(addedTask(res.data));
+                dispatch(addedTask(res.data))
                 navigate("/todos");
             }
         ).catch(err => notify.error(err));

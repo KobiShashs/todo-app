@@ -9,10 +9,13 @@ import notify from "../../../Services/Notifications";
 import store from "../../../Redux/Store";
 import { registered} from "../../../Redux/UserAppState";
 import SuperInput from "../../Shared/SuperInput/SuperInput";
+import {useDispatch} from "react-redux";
 
 function Register(): JSX.Element {
 
     const navigate = useNavigate();
+
+    const dispatch = useDispatch();
 
     const schema = yup.object().shape({
         email:
@@ -39,7 +42,8 @@ function Register(): JSX.Element {
         const credentialsReq = {email: credentials.email, password: credentials.password};
         registerToService(credentialsReq).then(res => {
             notify.success("Registered successfully");
-            store.dispatch(registered());
+            // store.dispatch(registered());
+            dispatch(registered())
             navigate("/login");
         }).catch(err => notify.error(err));
 

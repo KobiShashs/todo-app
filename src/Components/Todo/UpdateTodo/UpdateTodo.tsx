@@ -10,6 +10,7 @@ import {updateTask} from "../../../Services/WebApi";
 import notify from "../../../Services/Notifications";
 import store from "../../../Redux/Store";
 import {updatedTask} from "../../../Redux/TaskAppState";
+import {useDispatch} from "react-redux";
 
 function UpdateTodo(): JSX.Element {
 
@@ -23,6 +24,8 @@ function UpdateTodo(): JSX.Element {
         when: new Date()
     });
     const navigate = useNavigate();
+
+    const dispatch = useDispatch();
 
     const schema = yup.object().shape({
         title:
@@ -56,7 +59,8 @@ function UpdateTodo(): JSX.Element {
         await updateTask(id, task)
             .then(res => {
                 notify.success("Updated successfully");
-                store.dispatch(updatedTask(res.data));
+              //  store.dispatch(updatedTask(res.data));
+                dispatch(updatedTask(res.data));
                 navigate("/todos")
             })
             .catch(err => notify.error(err));
