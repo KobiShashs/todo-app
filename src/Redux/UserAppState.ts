@@ -1,7 +1,7 @@
 // Step 1 - Manage a global collection
 import {LoginResponse, User} from "../Models/Auth";
 import store from "./Store";
-import {clearedAll} from "./TaskAppState";
+import {clearedAll} from "./TasksAppState";
 
 export class UserAppState {
 

@@ -10,7 +10,7 @@ import notify from "../../../Services/Notifications";
 import store from "../../../Redux/Store";
 import {loggedIn} from "../../../Redux/UserAppState";
 import SuperInput from "../../Shared/SuperInput/SuperInput";
-import {clearedAll, downloadedTasks} from "../../../Redux/TaskAppState";
+import {clearedAll, downloadedTasks} from "../../../Redux/TasksAppState";
 import {useDispatch} from "react-redux";
 
 function Login(): JSX.Element {

@@ -1,7 +1,7 @@
 import {Task} from "../Models/Task";
 
 // Step 1 - Manage a global collection
-export class TaskAppState {
+export class TasksAppState {
     public tasks: Task[] = [];
 }
 
@@ -51,7 +51,7 @@ export function clearedAll(): TaskAction {
 }
 
 // Step 5 - Reducer function perform the required action
-export function tasksReducer(currentState: TaskAppState = new TaskAppState(), action: TaskAction): TaskAppState {
+export function tasksReducer(currentState: TasksAppState = new TasksAppState(), action: TaskAction): TasksAppState {
 
 
     const newState = {...currentState} //Spread Operator

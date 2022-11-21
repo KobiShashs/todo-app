@@ -3,9 +3,6 @@ import styled from "styled-components";
 import {InheritedButton, MyButton, Wrapper} from "../../../Services/UI";
 
 
-
-
-
 function Home(): JSX.Element {
 
 

@@ -4,7 +4,7 @@ import {useEffect} from "react";
 import notify from "../../../Services/Notifications";
 import {deleteTask} from "../../../Services/WebApi";
 import store from "../../../Redux/Store";
-import {deletedTask} from "../../../Redux/TaskAppState";
+import {deletedTask} from "../../../Redux/TasksAppState";
 import {useDispatch} from "react-redux";
 
 function DeleteTodo(): JSX.Element {

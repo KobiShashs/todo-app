@@ -9,7 +9,7 @@ import {useState} from "react";
 import {updateTask} from "../../../Services/WebApi";
 import notify from "../../../Services/Notifications";
 import store from "../../../Redux/Store";
-import {updatedTask} from "../../../Redux/TaskAppState";
+import {updatedTask} from "../../../Redux/TasksAppState";
 import {useDispatch} from "react-redux";
 
 function UpdateTodo(): JSX.Element {

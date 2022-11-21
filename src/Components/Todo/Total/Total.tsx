@@ -2,7 +2,7 @@ import "./Total.css";
 import {useEffect, useState} from "react";
 import store, {AppState} from "../../../Redux/Store";
 import {useSelector} from "react-redux";
-import {tasksReducer} from "../../../Redux/TaskAppState";
+import {tasksReducer} from "../../../Redux/TasksAppState";
 
 
 function Total(): JSX.Element {

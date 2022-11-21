@@ -1,5 +1,5 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
-import {tasksReducer} from "./TaskAppState";
+import {tasksReducer} from "./TasksAppState";
 import {userReducer} from "./UserAppState";
 import logger from 'redux-logger'
 

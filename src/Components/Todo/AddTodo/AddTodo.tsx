@@ -8,7 +8,7 @@ import {addTask} from "../../../Services/WebApi";
 import {useNavigate} from "react-router-dom";
 import SuperInput from "../../Shared/SuperInput/SuperInput";
 import store from "../../../Redux/Store";
-import {addedTask} from "../../../Redux/TaskAppState";
+import {addedTask} from "../../../Redux/TasksAppState";
 import {useDispatch} from "react-redux";
 import {useEffect} from "react";
 import useRedirect from "../../../Hooks/RedirectCustomHook";
